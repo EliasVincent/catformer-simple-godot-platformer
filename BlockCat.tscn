@@ -4,7 +4,7 @@
 [ext_resource path="res://BlockCat.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.9452, 15.9146 )
+extents = Vector2( 16.3209, 16.3494 )
 
 [node name="BlockCat" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -19,9 +19,4 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 0, 1 )
-scale = Vector2( 17, 1 )
-enabled = true
-cast_to = Vector2( 0, 18 )
+one_way_collision_margin = 0.0

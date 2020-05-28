@@ -109,6 +109,16 @@ position = Vector2( 312, -24 )
 ] instance=ExtResource( 5 )]
 position = Vector2( 576, 32 )
 
+[node name="Enemy4" parent="." groups=[
+"enemies",
+] instance=ExtResource( 5 )]
+position = Vector2( 746, 90.9999 )
+
+[node name="Enemy5" parent="." groups=[
+"enemies",
+] instance=ExtResource( 5 )]
+position = Vector2( 1318, 91.9999 )
+
 [node name="Unsichtbare Wand" type="StaticBody2D" parent="."]
 position = Vector2( -7.6817, -1.39668 )
 __meta__ = {

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var area = Area2D
 var velocity = Vector2()
 const SPEED = 100
 const GRAVITY = 10
@@ -10,6 +11,9 @@ const FLOOR = Vector2(0, -1)
 var direction = 1
 
 var is_dead = false
+
+func _ready():
+	area.connect("body_entered", self, "_on_Area2D_body_entered")
 
 func dead():
 	is_dead = true
@@ -40,5 +44,11 @@ func _physics_process(delta):
 		direction = direction * -1 # the same thing above, when it's "not colliding"
 		$RayCast2D.position.x *= -1
 		
-	if $RayCast_Top.is_colliding():
-		queue_free()
+	#if $RayCast_Top.is_colliding():
+		#queue_free()
+	
+
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() == "BlockCat"):
+		print("A")
