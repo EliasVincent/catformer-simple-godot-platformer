@@ -4,6 +4,15 @@ var velocity = Vector2(0,0)
 const SPEED = 150 # do this HERE, then u only need to change this once
 const GRAVITY = 10
 const JUMPFORCE = -220
+export var stomp_impulse: = 500
+
+#func _on_Area2D_EnemyDetector_area_entered(area):
+#	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	
+
+#func _on_Area2D_EnemyDetector_body_entered(body):
+	#queue_free()
+
 
 func _physics_process(delta):
 	
@@ -30,3 +39,10 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x,0,0.2) # lerp makes velocity closer to 0 over time with the velocity value
 	# the last value sets the speed of the slowdown
+
+#func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vector2:
+	#var out: = linear_velocity
+	#out.y = -impulse 
+	#return out
+
+

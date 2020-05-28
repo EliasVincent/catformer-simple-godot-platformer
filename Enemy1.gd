@@ -10,16 +10,18 @@ const FLOOR = Vector2(0, -1)
 
 var direction = 1
 
-var is_dead = false
-
 func _ready():
 	set_physics_process(false) # deactivates enemy when not in view -> performance
+	
 
-func dead():
-	is_dead = true
-	velocity = Vector2(0,0) # stop enemy
+func _on_Area2D_StompDetector_body_entered(body) -> void:
+	# check if the body is lower than the area
+	if body.global_position.y > get_node("Area2D_StompDetector").global_position.y:
+		return
+	get_node("CollisionShape2D").disabled = true # when you jump you don't stop
+	queue_free()
 
-func _physics_process(delta):
+func _physics_process(delta): 
 	velocity.x = SPEED * direction # calculates direction the enemy moves towards
 	velocity.y = velocity.y + GRAVITY
 	
@@ -31,9 +33,6 @@ func _physics_process(delta):
 	#$AnimatedSprite.play("animationName")
 	
 	velocity = move_and_slide(velocity, FLOOR)
-	
-	if is_dead:
-		queue_free()
 	
 	if is_on_wall():
 		direction = direction * -1 # "flips" the direction, und - plus - ist ja plus, also geht es in beide Richtungen
@@ -47,3 +46,4 @@ func _physics_process(delta):
 	#if $RayCast_Top.is_colliding():
 		#queue_free()
 	
+
