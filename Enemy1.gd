@@ -36,7 +36,7 @@ func _physics_process(delta):
 		# but the RayCast still needs to be flipped
 		$RayCast2D.position.x *= -1 # will put it on the other side of the enemy
 	# make sure the RayCast Arrow is underneath the enemie's collisionshape
-	if $RayCast2D.is_colliding() == false:
+	if !$RayCast2D.is_colliding(): # "!variable" means ""== false"
 		direction = direction * -1 # the same thing above, when it's "not colliding"
 		$RayCast2D.position.x *= -1
 		
