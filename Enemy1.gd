@@ -13,7 +13,7 @@ var direction = 1
 var is_dead = false
 
 func _ready():
-	area.connect("body_entered", self, "_on_Area2D_body_entered")
+	set_physics_process(false) # deactivates enemy when not in view -> performance
 
 func dead():
 	is_dead = true
@@ -47,8 +47,3 @@ func _physics_process(delta):
 	#if $RayCast_Top.is_colliding():
 		#queue_free()
 	
-
-
-func _on_Area2D_body_entered(body):
-	if (body.get_name() == "BlockCat"):
-		print("A")
