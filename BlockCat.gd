@@ -15,6 +15,7 @@ export var stomp_impulse: = 500
 
 func _on_Area2D_EnemyDetector_body_entered(body):
 	if body.is_in_group("enemy"):
+		# position = spawnPoint <- just puts player to coordinates, maybe useful for later things?
 		get_tree().reload_current_scene()
 func _ready():
 	var pos = get_position()
