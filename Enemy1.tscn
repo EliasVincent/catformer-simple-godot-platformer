@@ -7,9 +7,11 @@
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 17.0359, 2.66359 )
+extents = Vector2( 17.0359, 4.28711 )
 
-[node name="Enemy1" type="KinematicBody2D"]
+[node name="Enemy1" type="KinematicBody2D" groups=[
+"enemy",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,6 +46,6 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_StompDetector"]
 modulate = Color( 0.741176, 0.690196, 0.866667, 1 )
 self_modulate = Color( 0.709804, 1, 0, 1 )
-position = Vector2( 0, -2.09397 )
+position = Vector2( 0, -3.7944 )
 shape = SubResource( 2 )
 [connection signal="body_entered" from="Area2D_StompDetector" to="." method="_on_Area2D_StompDetector_body_entered"]

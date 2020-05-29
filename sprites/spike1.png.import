@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circlecatidle4.png-971fc6933cc0080c3bd4df7fbab88900.stex"
+path="res://.import/spike1.png-8a269499d6e3888a373d731f93c25c0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/circlecatidle4.png"
-dest_files=[ "res://.import/circlecatidle4.png-971fc6933cc0080c3bd4df7fbab88900.stex" ]
+source_file="res://sprites/spike1.png"
+dest_files=[ "res://.import/spike1.png-8a269499d6e3888a373d731f93c25c0d.stex" ]
 
 [params]
 

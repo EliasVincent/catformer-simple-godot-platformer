@@ -7,9 +7,11 @@
 extents = Vector2( 16.3209, 16.3494 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.5305, 15.6304 )
+extents = Vector2( 16.9221, 15.667 )
 
-[node name="BlockCat" type="KinematicBody2D"]
+[node name="BlockCat" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 stomp_impulse = 1000
 
@@ -23,14 +25,14 @@ shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
 [node name="Area2D_EnemyDetector" type="Area2D" parent="."]
-position = Vector2( 0.0256767, -17.1576 )
+position = Vector2( 0.0256767, 16 )
 gravity_vec = Vector2( 0, 0 )
 monitorable = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_EnemyDetector"]
 modulate = Color( 1, 0.847059, 0.847059, 1 )
-position = Vector2( 0, 15.1452 )
+position = Vector2( -0.0256767, -16 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_body_entered"]
