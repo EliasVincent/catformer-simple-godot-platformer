@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-var doublejump = 0
 var velocity = Vector2(0,0)
 var isDed = false
 var spawnPoint = Vector2(144, 110.566002)
@@ -39,13 +38,8 @@ func _physics_process(delta):
 	
 	velocity.y = velocity.y + GRAVITY # basically the gravity
 	
-	if Input.is_action_pressed("jump") and is_on_floor() and doublejump < 2: # just_pressed makes it a "press once" thing
+	if Input.is_action_pressed("jump") and is_on_floor(): # just_pressed makes it a "press once" thing
 		velocity.y = JUMPFORCE
-	if Input.is_action_just_pressed("jump"):
-		doublejump = doublejump + 1
-		print(doublejump)
-	if is_on_floor():
-		doublejump = 0
 	
 	move_and_slide(velocity) # function of movement, variable is our velocity var with the Vector2.x
 	velocity = move_and_slide(velocity, Vector2.UP) # fixes the infinitely adding gravity from the velocity.y + X thing
