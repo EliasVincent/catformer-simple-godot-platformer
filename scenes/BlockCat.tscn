@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BlockCatSpriteFrame.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/BlockCat.gd" type="Script" id=2]
+[ext_resource path="res://audio/Jump 5 - Sound effects Pack 2.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/Hit 1 - Sound effects Pack 2.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.3209, 16.3494 )
@@ -34,5 +36,11 @@ collision_layer = 0
 modulate = Color( 1, 0.847059, 0.847059, 1 )
 position = Vector2( -0.0256767, -16 )
 shape = SubResource( 2 )
+
+[node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="area_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_body_entered"]
