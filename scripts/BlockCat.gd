@@ -5,7 +5,7 @@ var spawnPoint = Vector2(144, 110.566002)
 const MAX_SPEED = 150 # do this HERE, then u only need to change this once
 const GRAVITY = 10
 const JUMPFORCE = -220
-const ACCELERATION = 25
+const ACCELERATION = 16
 export var stomp_impulse: = 500
 
 #func _on_Area2D_EnemyDetector_area_entered(area):
@@ -51,7 +51,7 @@ func _physics_process(delta):
 		
 	if is_on_floor():
 		if friction == true:
-			velocity.x = lerp(velocity.x,0,0.14)
+			velocity.x = lerp(velocity.x,0,0.12)
 	else:
 		velocity.x = lerp(velocity.x,0,0.04)
 		

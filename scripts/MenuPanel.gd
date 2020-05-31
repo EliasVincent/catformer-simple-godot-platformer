@@ -10,7 +10,7 @@ func _on_playbutton_pressed():
 
 
 func _on_linkbutton_pressed():
-	OS.shell_open("http://godotengine.org")
+	OS.shell_open("https://github.com/EliasVincent/simple-godot-platformer")
 
 
 func _on_aboutbutton_pressed():
