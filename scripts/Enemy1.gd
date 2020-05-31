@@ -14,10 +14,15 @@ func _ready():
 	set_physics_process(false) # deactivates enemy when not in view -> performance
 	
 
+func deathsound():
+	# BROKEN AAAAA
+	$DeathAudioPlayer.play()
+
 func _on_Area2D_StompDetector_body_entered(body) -> void:
 	# check if the body is lower than the area
 	if body.global_position.y > get_node("Area2D_StompDetector").global_position.y:
 		return
+	deathsound()
 	get_node("CollisionShape2D").disabled = true # when you jump you don't stop
 	queue_free()
 
