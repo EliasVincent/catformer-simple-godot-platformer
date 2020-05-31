@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Evil Empire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MenuPanel.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sprites/menu animation/menu_animation7.png" type="Texture" id=8]
 [ext_resource path="res://sprites/menu animation/menu_animation6.png" type="Texture" id=9]
 [ext_resource path="res://sprites/catformer_logo.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Black.jpg" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,6 +34,12 @@ outline_size = 1
 outline_color = Color( 0.141176, 0.12549, 0.12549, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 21
+outline_size = 1
+outline_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+font_data = ExtResource( 1 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,6 +52,7 @@ __meta__ = {
 position = Vector2( 480.5, 270 )
 scale = Vector2( 2.07576, 2.25 )
 frames = SubResource( 1 )
+frame = 5
 speed_scale = 0.3
 playing = true
 
@@ -62,9 +70,9 @@ __meta__ = {
 }
 
 [node name="play-button" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 304.0
-margin_right = 584.0
+margin_left = 368.0
+margin_top = 296.0
+margin_right = 576.0
 margin_bottom = 376.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.654902, 0, 0.968627, 1 )
@@ -82,4 +90,49 @@ margin_right = 792.0
 margin_bottom = 272.0
 texture = ExtResource( 10 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="link-button" type="Button" parent="."]
+margin_left = 664.0
+margin_top = 312.0
+margin_right = 860.0
+margin_bottom = 368.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.431373, 0.345098, 0.745098, 1 )
+text = "VIEW SOURCE ON GITHUB"
+
+[node name="about-button" type="Button" parent="."]
+margin_left = 728.0
+margin_top = 264.0
+margin_right = 786.0
+margin_bottom = 284.0
+text = "ABOUT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="about-panel" type="TextureRect" parent="about-button"]
+visible = false
+margin_left = -20.0
+margin_top = -148.0
+margin_right = 134.266
+margin_bottom = -20.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="about-button/about-panel"]
+margin_right = 192.0
+margin_bottom = 160.0
+text = "Game and sprites by Elias Vincent Simon
+
+Sound effects by phoenix1291
+
+Made in the Godot Engine"
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
+[connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
+[connection signal="pressed" from="about-button" to="." method="_on_aboutbutton_pressed"]
