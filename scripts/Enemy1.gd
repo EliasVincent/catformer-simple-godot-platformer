@@ -10,6 +10,8 @@ const FLOOR = Vector2(0, -1)
 
 var direction = 1
 
+onready var aniPlayer2: AnimationPlayer = get_node("AnimationPlayer")
+
 func _ready():
 	set_physics_process(false) # deactivates enemy when not in view -> performance
 	
@@ -17,14 +19,15 @@ func _ready():
 func deathsound():
 	# BROKEN AAAAA
 	$DeathAudioPlayer.play()
-
+func disableCollision():
+	get_node("CollisionShape2D").disabled = true # when you jump you don't stop
+	
 func _on_Area2D_StompDetector_body_entered(body) -> void:
 	# check if the body is lower than the area
 	if body.global_position.y > get_node("Area2D_StompDetector").global_position.y:
 		return
-	deathsound()
-	get_node("CollisionShape2D").disabled = true # when you jump you don't stop
-	queue_free()
+	$EnemyExplosion.show()
+	aniPlayer2.play("death")
 
 func _physics_process(delta): 
 	velocity.x = SPEED * direction # calculates direction the enemy moves towards

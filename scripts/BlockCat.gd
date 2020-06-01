@@ -2,14 +2,18 @@ extends KinematicBody2D
 
 var velocity = Vector2(0,0)
 var spawnPoint = Vector2(144, 110.566002)
-const MAX_SPEED = 150 # do this HERE, then u only need to change this once
+const MAX_SPEED = 190 # do this HERE, then u only need to change this once
 const GRAVITY = 10
 const JUMPFORCE = -220
 const ACCELERATION = 16
+
 export var stomp_impulse: = 500
 
-#func _on_Area2D_EnemyDetector_area_entered(area):
-#	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+signal coinCollected
+
+func _on_Area2D_EnemyDetector_area_entered(area):
+		if area.is_in_group("coin"):
+			emit_signal("coinCollected")
 	
 
 func _on_Area2D_EnemyDetector_body_entered(body):
@@ -17,6 +21,7 @@ func _on_Area2D_EnemyDetector_body_entered(body):
 		# position = spawnPoint <- just puts player to coordinates, maybe useful for later things?
 		
 		death()
+
 
 func _ready():
 	var pos = get_position()
