@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://sprites/ground1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/BlockCat.tscn" type="PackedScene" id=2]
@@ -41,6 +41,35 @@ extents = Vector2( 128, 8 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 195.133 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 11 )
@@ -364,6 +393,21 @@ position = Vector2( 6136, -341.462 )
 position = Vector2( 6173.26, -304 )
 
 [node name="Portal" parent="." instance=ExtResource( 14 )]
-position = Vector2( 40, 126.766 )
+position = Vector2( 6664, -396.436 )
 nextScene = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade_in"
+anims/fade_in = SubResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -8.0
+margin_top = -120.0
+margin_right = 928.0
+margin_bottom = 392.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="coinCollected" from="BlockCat" to="." method="_on_BlockCat_coinCollected"]

@@ -136,7 +136,7 @@ shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="BlockCat" parent="." instance=ExtResource( 2 )]
-position = Vector2( 144, 110.566 )
+position = Vector2( 224, 110.566 )
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="BlockCat"]

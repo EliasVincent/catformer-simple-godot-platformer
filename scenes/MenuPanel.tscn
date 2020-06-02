@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Evil Empire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MenuPanel.gd" type="Script" id=2]
@@ -40,6 +40,36 @@ outline_size = 1
 outline_color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 5.27802, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,10 +79,10 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 480.5, 270 )
-scale = Vector2( 2.07576, 2.25 )
+position = Vector2( 476, 266 )
+scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 4
+frame = 6
 speed_scale = 0.3
 playing = true
 
@@ -133,6 +163,28 @@ text = "Game and sprites by Elias Vincent Simon
 Sound effects by phoenix1291
 
 Made in the Godot Engine"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 22.0
+text = "v0.2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade_in"
+anims/fade_in = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -16.0
+margin_top = -8.0
+margin_right = 968.0
+margin_bottom = 544.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
 [connection signal="pressed" from="about-button" to="." method="_on_aboutbutton_pressed"]
