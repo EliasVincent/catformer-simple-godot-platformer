@@ -4,7 +4,7 @@ var velocity = Vector2(0,0)
 var spawnPoint = Vector2(144, 110.566002)
 const MAX_SPEED = 190 # do this HERE, then u only need to change this once
 const GRAVITY = 10
-const JUMPFORCE = -220
+const JUMPFORCE = -235
 const ACCELERATION = 16
 
 export var stomp_impulse: = 500
