@@ -29,7 +29,8 @@ func _ready():
 	return pos
 	
 func death():
-	get_tree().change_scene("res://scenes/GameOverPanel.tscn")
+	get_tree().reload_current_scene()
+#	get_tree().change_scene("res://scenes/GameOverPanel.tscn")
 
 func _physics_process(delta):
 	var friction = false
