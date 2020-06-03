@@ -8,5 +8,6 @@ func death():
 
 
 func _on_A2D_Spike_StompDetector_body_entered(body):
-	if body.is_in_group("player"):
-		death()
+#	if body.is_in_group("player"):
+#		death()
+	pass

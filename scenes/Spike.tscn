@@ -3,9 +3,7 @@
 [ext_resource path="res://sprites/new ground/spike1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Spike.gd" type="Script" id=2]
 
-[node name="Spike" type="StaticBody2D" groups=[
-"enemy",
-]]
+[node name="Spike" type="StaticBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -17,10 +15,12 @@ position = Vector2( 0.613284, -0.5869 )
 scale = Vector2( 1.09859, 1.10654 )
 polygon = PoolVector2Array( -0.496968, -15.8522, 8.31557, -11.8882, 15.2699, 14.8443, -16.1199, 14.8443, -8.47053, -13.2508 )
 
-[node name="A2D_Spike_StompDetector" type="Area2D" parent="."]
+[node name="A2D_Spike_StompDetector" type="Area2D" parent="." groups=[
+"enemy",
+]]
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="A2D_Spike_StompDetector"]
 position = Vector2( 0.661274, -2.2442 )
 scale = Vector2( 1.16948, 1.21647 )
-polygon = PoolVector2Array( -0.758445, -13.5815, 8.068, -12.5327, 15.6452, 15.1214, -16.4063, 15.1984, -8.69233, -11.8653 )
+polygon = PoolVector2Array( -0.803312, -14.888, 8.068, -12.5327, 15.6452, 15.1214, -16.4063, 15.1984, -9.93275, -12.3926 )
 [connection signal="body_entered" from="A2D_Spike_StompDetector" to="." method="_on_A2D_Spike_StompDetector_body_entered"]

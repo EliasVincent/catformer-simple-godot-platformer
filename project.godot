@@ -21,6 +21,10 @@ boot_splash/image="res://sprites/bg1.png"
 boot_splash/use_filter=false
 config/icon="res://sprites/circlecatidle3.png"
 
+[autoload]
+
+CatData="*res://scenes/Autoload/CatData.gd"
+
 [display]
 
 window/size/width=960

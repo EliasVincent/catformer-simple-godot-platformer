@@ -14,6 +14,12 @@ signal coinCollected
 func _on_Area2D_EnemyDetector_area_entered(area):
 		if area.is_in_group("coin"):
 			emit_signal("coinCollected")
+			CatData.CoinCount += 1
+			print(CatData.CoinCount)
+		elif area.is_in_group("enemy"):
+			death()
+		else:
+			pass
 	
 
 func _on_Area2D_EnemyDetector_body_entered(body):
@@ -29,8 +35,12 @@ func _ready():
 	return pos
 	
 func death():
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
 #	get_tree().change_scene("res://scenes/GameOverPanel.tscn")
+	$AnimationPlayer.play("death_ani")
+
+func respawn():
+	get_tree().reload_current_scene()
 
 func _physics_process(delta):
 	var friction = false

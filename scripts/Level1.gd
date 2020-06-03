@@ -7,4 +7,3 @@ func _ready():
 
 func _on_BlockCat_coinCollected():
 	score = score + 1
-	print(score)
