@@ -42,7 +42,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "fade_in"
-length = 0.7
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
 tracks/0/interp = 1
@@ -50,7 +50,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 1.1 ),
 "transitions": PoolRealArray( 5.27802, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -62,7 +62,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.7 ),
+"times": PoolRealArray( 1.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -82,7 +82,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 3
+frame = 6
 speed_scale = 0.3
 playing = true
 
@@ -132,6 +132,9 @@ margin_bottom = 368.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.431373, 0.345098, 0.745098, 1 )
 text = "VIEW SOURCE ON GITHUB"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="about-button" type="Button" parent="."]
 margin_left = 728.0
@@ -167,16 +170,20 @@ Made in the Godot Engine"
 [node name="Label" type="Label" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 48.0
-margin_bottom = 22.0
-text = "v0.2"
+margin_right = 53.0
+margin_bottom = 39.0
+text = "v0.2
+week 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
 anims/fade_in = SubResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
-modulate = Color( 1, 1, 1, 0.556745 )
+modulate = Color( 1, 1, 1, 0.847797 )
 margin_left = -16.0
 margin_top = -8.0
 margin_right = 968.0

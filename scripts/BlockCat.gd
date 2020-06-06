@@ -38,6 +38,7 @@ func death():
 #	get_tree().reload_current_scene()
 #	get_tree().change_scene("res://scenes/GameOverPanel.tscn")
 	$AnimationPlayer.play("death_ani")
+	CatData.CoinCount = 0
 
 func respawn():
 	get_tree().reload_current_scene()
