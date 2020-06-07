@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/coin.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Coin.gd" type="Script" id=2]
-[ext_resource path="res://audio/Coins 9 - Sound effects Pack 2.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/Catformer_Coin.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.43372

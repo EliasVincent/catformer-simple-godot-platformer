@@ -1,7 +1,8 @@
-# Simple Godot 2D Platformer
+# Catformer
+---
+## Simple Godot 2D Platformer
 
 ### Credits
-[Sound effects by phoenix1291](https://phoenix1291.itch.io/)
 [Made with the Godot Engine](https://godotengine.org/license)
 
 ### About
