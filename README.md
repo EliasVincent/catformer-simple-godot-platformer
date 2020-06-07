@@ -2,6 +2,7 @@
 
 ### Credits
 [Sound effects by phoenix1291](https://phoenix1291.itch.io/)
+[Made with the Godot Engine](https://godotengine.org/license)
 
 ### About
 A very simple and barebones platformer. Acts more as a learning experience for myself. Consider this more as a reference for other projects rather than an actual game.
