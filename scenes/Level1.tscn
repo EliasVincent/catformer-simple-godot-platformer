@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://sprites/ground1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/BlockCat.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://scenes/Portal.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/coin_label.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/MovingPlatform.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sprites/prlx_bg_2.png" type="Texture" id=17]
+[ext_resource path="res://sprites/prlx_bg_stars_big.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.5394, 32.3433 )
@@ -208,18 +210,6 @@ drag_margin_top = 0.3
 drag_margin_right = 0.3
 drag_margin_bottom = 0.4
 editor_draw_limits = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="BlockCat/Camera2D"]
-
-[node name="CoinLabel" parent="BlockCat/Camera2D/ParallaxBackground" instance=ExtResource( 15 )]
-
-[node name="fps_label" parent="BlockCat/Camera2D/ParallaxBackground" instance=ExtResource( 10 )]
-
-[node name="Sprite" type="Sprite" parent="BlockCat/Camera2D/ParallaxBackground"]
-position = Vector2( 482.933, 276 )
-scale = Vector2( 1.51583, 1.53333 )
-z_index = -1
-texture = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BlockCat/Camera2D"]
 layer = -1
@@ -469,7 +459,7 @@ position = Vector2( 912, 56 )
 position = Vector2( 464, 110.566 )
 
 [node name="Portal" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1768, -184 )
+position = Vector2( 1856, 280 )
 nextScene = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -477,6 +467,7 @@ autoplay = "fade_in"
 anims/fade_in = SubResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -8.0
 margin_top = -120.0
 margin_right = 928.0
@@ -486,10 +477,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 482.933, 276 )
+scale = Vector2( 1.51583, 1.53333 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="Stars Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1280, 720 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Stars Layer"]
+position = Vector2( 440, 184 )
+texture = ExtResource( 18 )
+
+[node name="Skyline Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 70.9578 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Skyline Layer"]
+position = Vector2( -8, -112 )
+texture = ExtResource( 17 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1280, 720 )
+
 [node name="MovingPlatform" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2152, 98.3359 )
+position = Vector2( 2152, 136.035 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
 autoplay = "movement"
 anims/movement = SubResource( 11 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CoinLabel" parent="HUD" instance=ExtResource( 15 )]
+
+[node name="fps_label" parent="HUD" instance=ExtResource( 10 )]
 [connection signal="coinCollected" from="BlockCat" to="." method="_on_BlockCat_coinCollected"]

@@ -82,7 +82,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 6
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -183,7 +183,6 @@ autoplay = "fade_in"
 anims/fade_in = SubResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
-modulate = Color( 1, 1, 1, 0.847797 )
 margin_left = -16.0
 margin_top = -8.0
 margin_right = 968.0
