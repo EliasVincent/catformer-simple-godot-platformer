@@ -82,7 +82,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 1
+frame = 6
 speed_scale = 0.3
 playing = true
 
@@ -173,7 +173,7 @@ margin_top = 8.0
 margin_right = 53.0
 margin_bottom = 39.0
 text = "v0.2
-week 2"
+06-07-2020"
 __meta__ = {
 "_edit_use_anchors_": false
 }
