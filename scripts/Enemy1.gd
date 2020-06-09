@@ -42,6 +42,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, FLOOR)
 	
+	# make sure to set tilesets on the same collision layer
 	if is_on_wall():
 		direction = direction * -1 # "flips" the direction, und - plus - ist ja plus, also geht es in beide Richtungen
 		# but the RayCast still needs to be flipped
