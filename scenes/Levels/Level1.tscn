@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sprites/ground1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/BlockCat.tscn" type="PackedScene" id=2]
@@ -9,12 +9,11 @@
 [ext_resource path="res://tilesets/NEW_ow_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Torch.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/fps_label.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Levels/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Levels/TestLevelTemplate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Portal.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/coin_label.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/MovingPlatform.tscn" type="PackedScene" id=16]
 [ext_resource path="res://sprites/prlx_bg_2.png" type="Texture" id=17]
 [ext_resource path="res://sprites/prlx_bg_fog.png" type="Texture" id=18]
@@ -520,11 +519,7 @@ position = Vector2( 2652, 123.469 )
 autoplay = "movement"
 anims/movement = SubResource( 11 )
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="CoinLabel" parent="HUD" instance=ExtResource( 15 )]
-
-[node name="fps_label" parent="HUD" instance=ExtResource( 10 )]
+[node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [node name="Label" type="Label" parent="."]
 margin_left = 4872.0

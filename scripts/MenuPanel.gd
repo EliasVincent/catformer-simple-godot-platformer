@@ -15,3 +15,11 @@ func _on_linkbutton_pressed():
 
 func _on_aboutbutton_pressed():
 	$"about-button/about-panel".show()
+
+
+func _on_Mute_Audio_Button_pressed():
+	AudioHandler.audioMuter()
+
+
+func _on_Mute_Musik_Button_pressed():
+	AudioHandler.musicMuter()

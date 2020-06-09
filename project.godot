@@ -24,6 +24,7 @@ config/icon="res://sprites/circlecatidle3.png"
 [autoload]
 
 CatData="*res://scenes/Autoload/CatData.gd"
+AudioHandler="*res://scenes/Autoload/AudioHandler.tscn"
 
 [display]
 
@@ -56,6 +57,7 @@ jump={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_clear_color=Color( 0.2, 0.2, 0.2, 1 )

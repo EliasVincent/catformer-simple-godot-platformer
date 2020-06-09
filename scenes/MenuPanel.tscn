@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Evil Empire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MenuPanel.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sprites/menu animation/menu_animation6.png" type="Texture" id=9]
 [ext_resource path="res://sprites/catformer_logo.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Black.jpg" type="Texture" id=11]
+[ext_resource path="res://audio/Music/menu-theme.ogg" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -82,6 +83,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.3
 playing = true
 
@@ -135,6 +137,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Mute Audio Button" type="Button" parent="."]
+margin_left = 832.0
+margin_top = 24.0
+margin_right = 939.0
+margin_bottom = 56.0
+text = "Mute All Audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mute Musik Button" type="Button" parent="."]
+margin_left = 832.0
+margin_top = 72.0
+margin_right = 939.0
+margin_bottom = 104.0
+text = "Mute Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="about-button" type="Button" parent="."]
 margin_left = 728.0
 margin_top = 264.0
@@ -182,6 +204,7 @@ autoplay = "fade_in"
 anims/fade_in = SubResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -16.0
 margin_top = -8.0
 margin_right = 968.0
@@ -190,6 +213,13 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Menu Theme Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+bus = "1 - Music"
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
+[connection signal="pressed" from="Mute Audio Button" to="." method="_on_Mute_Audio_Button_pressed"]
+[connection signal="pressed" from="Mute Musik Button" to="." method="_on_Mute_Musik_Button_pressed"]
 [connection signal="pressed" from="about-button" to="." method="_on_aboutbutton_pressed"]
