@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://BlockCatSpriteFrame.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/BlockCat.gd" type="Script" id=2]
 [ext_resource path="res://audio/Catformer_Death.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/Catformer_Jump.wav" type="AudioStream" id=4]
-[ext_resource path="res://sprites/Light/Light_Gradient.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.3209, 16.3494 )
@@ -133,13 +132,5 @@ hue_variation_random = 0.66
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death_ani = SubResource( 3 )
 anims/none = SubResource( 4 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0.0256767, 0 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-color = Color( 0.745098, 0.745098, 0.745098, 0.705882 )
-energy = 0.5
-shadow_enabled = true
 [connection signal="area_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="Area2D_EnemyDetector" to="." method="_on_Area2D_EnemyDetector_body_entered"]

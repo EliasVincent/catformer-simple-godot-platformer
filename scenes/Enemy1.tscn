@@ -135,6 +135,7 @@ shape = SubResource( 2 )
 
 [node name="DeathAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -4.837
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

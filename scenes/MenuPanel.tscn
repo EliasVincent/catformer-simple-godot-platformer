@@ -83,7 +83,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 1
+frame = 4
 speed_scale = 0.3
 playing = true
 
@@ -218,6 +218,26 @@ __meta__ = {
 stream = ExtResource( 12 )
 autoplay = true
 bus = "1 - Music"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 8.0
+margin_right = 589.0
+margin_bottom = 22.0
+text = "Press F11 to toggle fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 400.0
+margin_top = 40.0
+margin_right = 589.0
+margin_bottom = 54.0
+text = "Press M to toggle audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
 [connection signal="pressed" from="Mute Audio Button" to="." method="_on_Mute_Audio_Button_pressed"]
