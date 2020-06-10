@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( 0, -25 )
+current = true
+zoom = Vector2( 0.7, 0.7 )
+limit_left = 0
+limit_bottom = 300
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 20.0
+drag_margin_left = 0.5
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.4
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
