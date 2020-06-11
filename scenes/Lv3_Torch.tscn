@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/torch1.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.370454 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.37931, 0.995074, 1 )
+colors = PoolColorArray( 0.669178, 1, 0.644531, 1, 0, 0.631836, 0.0154257, 1, 0.00531912, 0.236816, 0, 1, 1, 1, 1, 1 )
+
+[node name="Torch" type="Sprite"]
+texture = ExtResource( 1 )
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0, -8 )
+rotation = -1.5708
+amount = 64
+lifetime = 2.0
+emission_shape = 2
+emission_rect_extents = Vector2( 5, 5 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 8.0
+initial_velocity_random = 1.0
+angular_velocity = 80.0
+angular_velocity_random = 1.0
+linear_accel = 12.67
+angle = 32.6
+scale_amount = 3.5
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
