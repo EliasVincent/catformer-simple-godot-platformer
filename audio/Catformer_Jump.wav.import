@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Catformer_Jump.wav-5a9f4432197d0f29e15bd1f7ba3b11e5.sample"
+
+[deps]
+
+source_file="res://audio/Catformer_Jump.wav"
+dest_files=[ "res://.import/Catformer_Jump.wav-5a9f4432197d0f29e15bd1f7ba3b11e5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -4,9 +4,11 @@ extends Control
 func _ready():
 	pass
 
+func gameStarter():
+	get_tree().change_scene("res://scenes/Levels/Level1.tscn")
 
 func _on_playbutton_pressed():
-	get_tree().change_scene("res://scenes/Levels/Level1.tscn")
+	$AnimationPlayer.play("intro")
 
 
 func _on_linkbutton_pressed():

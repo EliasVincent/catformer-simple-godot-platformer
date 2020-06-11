@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Evil Empire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MenuPanel.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/catformer_logo.png" type="Texture" id=10]
 [ext_resource path="res://sprites/Black.jpg" type="Texture" id=11]
 [ext_resource path="res://audio/Music/menu-theme.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -71,6 +72,76 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/ColorRect Intro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/ColorRect Intro:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/RichTextLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2, 4, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "gameStarter"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer/RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+font_data = ExtResource( 13 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -83,7 +154,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 4
+frame = 3
 speed_scale = 0.3
 playing = true
 
@@ -202,14 +273,40 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
 anims/fade_in = SubResource( 5 )
+anims/intro = SubResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = -16.0
 margin_top = -8.0
 margin_right = 968.0
 margin_bottom = 544.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect Intro" type="ColorRect" parent="AnimationPlayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -16.0
+margin_top = -8.0
+margin_right = 992.0
+margin_bottom = 576.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AnimationPlayer"]
+visible = false
+margin_left = 280.0
+margin_top = 116.0
+margin_right = 760.0
+margin_bottom = 432.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "QUICK! THE MOON IS LOSING ALL IT'S SHINE!
+
+GET UP THERE AND DON'T LET IT DIE..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
