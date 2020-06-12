@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Levels/TestLevelTemplate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Portal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Invisible Wall.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/MovingPlatform.tscn" type="PackedScene" id=16]
 [ext_resource path="res://sprites/prlx_bg_2.png" type="Texture" id=17]
 [ext_resource path="res://sprites/prlx_bg_fog.png" type="Texture" id=18]
@@ -45,10 +46,7 @@ extents = Vector2( 224, 8.19995 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48, 8.19995 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 10, 195.133 )
-
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
 tracks/0/interp = 1
@@ -76,7 +74,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "movement"
 length = 2.0
 loop = true
@@ -292,14 +290,7 @@ z_index = -1
 position = Vector2( 6768, 56 )
 z_index = -1
 
-[node name="Invisible Wall" type="StaticBody2D" parent="."]
-position = Vector2( -7.6817, -1.39668 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible Wall"]
-shape = SubResource( 9 )
+[node name="Invisible Wall" parent="." instance=ExtResource( 15 )]
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -462,7 +453,7 @@ nextScene = ExtResource( 21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 10 )
+anims/fade_in = SubResource( 9 )
 
 [node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0 )
@@ -517,7 +508,7 @@ position = Vector2( 2652, 123.469 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
 autoplay = "movement"
-anims/movement = SubResource( 11 )
+anims/movement = SubResource( 10 )
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 

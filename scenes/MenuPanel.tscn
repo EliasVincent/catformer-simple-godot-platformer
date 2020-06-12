@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Evil Empire.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/MenuPanel.gd" type="Script" id=2]
@@ -142,6 +142,12 @@ tracks/4/keys = {
 size = 21
 font_data = ExtResource( 13 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -154,7 +160,7 @@ __meta__ = {
 position = Vector2( 476, 266 )
 scale = Vector2( 2.09524, 2.28333 )
 frames = SubResource( 1 )
-frame = 3
+frame = 6
 speed_scale = 0.3
 playing = true
 
@@ -264,8 +270,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 53.0
 margin_bottom = 39.0
-text = "v0.3
-week 3"
+text = "v1.0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -335,6 +340,14 @@ text = "Press M to toggle audio"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 720.0
+margin_top = 496.0
+margin_right = 960.0
+margin_bottom = 542.0
+custom_fonts/font = SubResource( 8 )
+text = "(c) 2020 - RIESYETI"
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
 [connection signal="pressed" from="Mute Audio Button" to="." method="_on_Mute_Audio_Button_pressed"]
