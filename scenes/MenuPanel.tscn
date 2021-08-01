@@ -348,6 +348,7 @@ margin_right = 960.0
 margin_bottom = 542.0
 custom_fonts/font = SubResource( 8 )
 text = "(c) 2020 - RIESYETI"
+
 [connection signal="pressed" from="play-button" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="link-button" to="." method="_on_linkbutton_pressed"]
 [connection signal="pressed" from="Mute Audio Button" to="." method="_on_Mute_Audio_Button_pressed"]

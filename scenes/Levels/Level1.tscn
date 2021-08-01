@@ -231,6 +231,18 @@ position = Vector2( 5920, -624 )
 [node name="Enemy1" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 768, 110.566 )
 
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 721.751, 110.566 )
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 678.024, 112.248 )
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 626.729, 110.566 )
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 626.729, 110.566 )
+
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 2976, 176 )
 
@@ -528,4 +540,5 @@ __meta__ = {
 [node name="Portal2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 5064, 168 )
 nextScene = ExtResource( 13 )
+
 [connection signal="coinCollected" from="BlockCat" to="." method="_on_BlockCat_coinCollected"]
